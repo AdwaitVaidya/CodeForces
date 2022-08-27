@@ -1,5 +1,7 @@
+
 #include <bits/stdc++.h>
 //For ordered_set
+using namespace std;
 #include <ext/pb_ds/assoc_container.hpp>
 #include <ext/pb_ds/tree_policy.hpp>
 #define MOD 1000000007
@@ -35,7 +37,6 @@
 #define FILE_READ_OUT freopen("output.txt","w",stdout);
 #define all(a) a.begin(),a.end()
 #define ld long double
-using namespace std;
 // For ordered_set
 using namespace __gnu_pbds;
 template <typename T>
@@ -44,14 +45,39 @@ const ll maxn = 1e5;
 const ll inf = 1e9;
 const double pi = acos(-1);
 
-vector<vector<int>> adj;
-vector<bool> visited;
-void dfs(int s = 0){
-    visited[s] = true;
-    for(auto &i: adj[s])dfs(i);
+void fastscan(int &number)
+{
+    //variable to indicate sign of input number
+    bool negative = false;
+    register int c;
+  
+    number = 0;
+  
+    // extract current character from buffer
+    c = getchar();
+    if (c=='-')
+    {
+        // number is negative
+        negative = true;
+  
+        // extract the next character from the buffer
+        c = getchar();
+    }
+  
+    // Keep on extracting characters if they are integers
+    // i.e ASCII Value lies from '0'(48) to '9' (57)
+    for (; (c>47 && c<58); c=getchar())
+        number = number *10 + c - 48;
+  
+    // if scanned input has a negative sign, negate the
+    // value of the input number
+    if (negative)
+        number *= -1;
 }
 
-int main(){
-
-   return 0;
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    return 0;
 }
